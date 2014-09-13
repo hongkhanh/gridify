@@ -1,6 +1,5 @@
-# gridify
+gridify
 =======
-
 A lightweight script for creating a Pinterest like grid using JQuery, pure javascript or YUI with image loaded
 
 
