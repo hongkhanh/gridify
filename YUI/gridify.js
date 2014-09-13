@@ -11,6 +11,7 @@ YUI.add('imageloaded', function (Y) {
         {
             var images = this.all('img');
             var count = images.size();
+            if (count == 0) cb();
             images.each(function(img){
                 var image = new Image();
                 image.onload = function(e){

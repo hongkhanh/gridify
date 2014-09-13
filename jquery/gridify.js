@@ -7,7 +7,7 @@ $.fn.extend({
     {
         var images = $(this).find('img');
         var count = images.length;
-
+        if (count == 0) cb();
         images.each(function(i, image){
             var image = new Image();
             image.onload = function(e){

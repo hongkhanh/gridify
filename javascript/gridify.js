@@ -5,6 +5,7 @@
 Element.prototype.imageLoaded = function (cb){
     var images = this.querySelectorAll('img');
     var count = images.length;
+    if (count == 0) cb();
     for (var i= 0, length = images.length; i < length; i++)
     {
         var image = new Image();
