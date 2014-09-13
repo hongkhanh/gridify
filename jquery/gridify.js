@@ -48,7 +48,7 @@ $.fn.extend({
 
             items.each(function(i, item) {
                 var $item = $(item),
-                    idx = columns.indexOf(Math.min.apply(Math, columns));
+                    idx = $.inArray(Math.min.apply(Math, columns), columns);
 
                 $item.css({
                     width: item_width,

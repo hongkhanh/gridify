@@ -24,42 +24,50 @@ Element.prototype.imageLoaded = function (cb){
 Element.prototype.gridify = function (args)
 {
     var self = this;
-    var args = args || {};
-    var render = function()
-    {
-        self.style.position = 'relative';
-        var items = self.querySelectorAll(args.srcNode),
-            width = self.clientWidth,
-            item_margin = parseInt(args.margin || 0),
-            item_width = parseInt(args.max_width || args.width || 220),
-            column_count = Math.floor(width/(item_width + item_margin)),
-            left = (width % (item_width + item_margin)) / 2,
-            columns = [];
-
-        if (args.max_width)
+    var args = args || {},
+        indexOfSmallest = function (a) {
+            var lowest = 0;
+            for (var i = 1; i < a.length; i++) {
+                if (a[i] < a[lowest]) lowest = i;
+            }
+            return lowest;
+        },
+        render = function()
         {
-            item_width = (width - column_count * item_margin - item_margin)/column_count;
-            left = item_margin/2;
-        }
+            self.style.position = 'relative';
+            var items = self.querySelectorAll(args.srcNode),
+                width = self.clientWidth,
+                item_margin = parseInt(args.margin || 0),
+                item_width = parseInt(args.max_width || args.width || 220),
+                column_count = Math.floor(width/(item_width + item_margin)),
+                left = (width % (item_width + item_margin)) / 2,
+                columns = [];
 
-        for (var i = 0; i < column_count; i++)
-        {
-            columns.push(0);
-        }
+            if (args.max_width)
+            {
+                item_width = (width - column_count * item_margin - item_margin)/column_count;
+                left = item_margin/2;
+            }
 
-        for (var i= 0, length = items.length; i < length; i++)
-        {
-            var idx = columns.indexOf(Math.min.apply(Math, columns));
-            items[i].setAttribute('style', 'width: ' + item_width + 'px; ' +
-                'position: absolute; ' +
-                'margin: ' + item_margin/2 + 'px; ' +
-                'top: ' + (columns[idx] + item_margin/2) +'px; ' +
-                'left: ' + ((item_width + item_margin) * idx + left) + 'px; ' +
-                'transition: ' + (args.transition || 'all 0.5s ease'));
+            for (var i = 0; i < column_count; i++)
+            {
+                columns.push(0);
+            }
 
-            columns[idx] += items[i].clientHeight + item_margin;
-        }
-    };
+            for (var i= 0, length = items.length; i < length; i++)
+            {
+                var idx = indexOfSmallest(columns);
+                items[i].setAttribute('style', 'width: ' + item_width + 'px; ' +
+                    'position: absolute; ' +
+                    'margin: ' + item_margin/2 + 'px; ' +
+                    'top: ' + (columns[idx] + item_margin/2) +'px; ' +
+                    'left: ' + ((item_width + item_margin) * idx + left) + 'px; ' +
+                    'transition: ' + (args.transition || 'all 0.5s ease'));
+
+                columns[idx] += items[i].clientHeight + item_margin;
+            }
+        };
+
     this.imageLoaded(render);
 
     if (args.resizable)
