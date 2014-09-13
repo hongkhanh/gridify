@@ -77,7 +77,7 @@ YUI.add('gridify', function (Y) {
                 });
             };
 
-            self.imageLoaded(function(){render()});
+            self.imageLoaded(render);
 
             if (options.resizable)
             {

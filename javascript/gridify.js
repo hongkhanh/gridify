@@ -59,9 +59,7 @@ Element.prototype.gridify = function (args)
             columns[idx] += items[i].clientHeight + item_margin;
         }
     };
-    this.imageLoaded(function(){
-        render();
-    })
+    this.imageLoaded(render);
 
     if (args.resizable)
     {
