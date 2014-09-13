@@ -49,7 +49,7 @@ YUI.add('gridify', function (Y) {
                     item_margin = parseInt(options.margin || 0),
                     item_width = parseInt(options.max_width || options.width || 220),
                     column_count = Math.floor(width/(item_width + item_margin)),
-                    left = (width % (item_width + item_margin) - item_margin) / 2,
+                    left = (width % (item_width + item_margin)) / 2,
                     columns = [];
 
                 if (options.max_width)
