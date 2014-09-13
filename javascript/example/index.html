@@ -38,7 +38,16 @@
 <script type="text/javascript" src="../gridify.js"></script>
 <script type="text/javascript">
     window.onload = function(){
-        document.querySelector('.grid').gridify({srcNode: 'img', margin: '20px', width: '250px', resizable: true});
+        var options =
+        {
+            srcNode: 'img',             // grid items (class, node)
+            margin: '20px',             // margin in pixel, default: 0px
+            width: '250px',             // grid item width in pixel, default: 220px
+            max_width: '',              // dynamic gird item width if specified, (pixel)
+            resizeable: true,           // re-layout if window resize
+            transition: 'all 0.5s ease' // support transition for CSS3, default: all 0.5s ease
+        }
+        document.querySelector('.grid').gridify(options);
     }
 </script>
 
