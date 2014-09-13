@@ -3,31 +3,34 @@
   <head>
     <meta charset='utf-8'>
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Chivo:900' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
     <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen">
     <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
-
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-
     <title>Gridify by hongkhanh</title>
   </head>
 
   <body>
-    <header>
+    <div id="container">
       <div class="inner">
-        <h1>Gridify</h1>
-        <h2>A lightweight script for creating a Pinterest like grid using JQuery, pure javascript or YUI with image loaded</h2>
-        <a href="https://github.com/hongkhanh/gridify" class="button"><small>View project on</small>GitHub</a>
-      </div>
-    </header>
 
-    <div id="content-wrapper">
-      <div class="inner clearfix">
-        <section id="main-content">
+        <header>
+          <h1>Gridify</h1>
+          <h2>A lightweight script for creating a Pinterest like grid using JQuery, pure javascript or YUI with image loaded</h2>
+        </header>
+
+        <section id="downloads" class="clearfix">
+          <a href="https://github.com/hongkhanh/gridify/zipball/master" id="download-zip" class="button"><span>Download .zip</span></a>
+          <a href="https://github.com/hongkhanh/gridify/tarball/master" id="download-tar-gz" class="button"><span>Download .tar.gz</span></a>
+          <a href="https://github.com/hongkhanh/gridify" id="view-on-github" class="button"><span>View on GitHub</span></a>
+        </section>
+
+        <hr>
+
+        <section id="main_content">
           <p><img src="https://raw.githubusercontent.com/hongkhanh/gridify/master/screenshot.jpg" alt="A lightweight script for creating a Pinterest like grid using JQuery, pure javascript or YUI with image loaded"></p>
 
 <h1>
@@ -37,16 +40,16 @@
 <a name="pure-javascript" class="anchor" href="#pure-javascript"><span class="octicon octicon-link"></span></a>Pure javascript</h2>
 
 <pre><code> window.onload = function(){
-    var options =
-    {
-        srcNode: 'img',             // grid items (class, node)
-        margin: '20px',             // margin in pixel, default: 0px
-        width: '250px',             // grid item width in pixel, default: 220px
-        max_width: '',              // dynamic gird item width if specified, (pixel)
-        resizable: true,            // re-layout if window resize
-        transition: 'all 0.5s ease' // support transition for CSS3, default: all 0.5s ease
-    }
-    document.querySelector('.grid').gridify(options);
+      var options =
+      {
+           srcNode: 'img',             // grid items (class, node)
+           margin: '20px',             // margin in pixel, default: 0px
+           width: '250px',             // grid item width in pixel, default: 220px
+           max_width: '',              // dynamic gird item width if specified, (pixel)
+           resizable: true,            // re-layout if window resize
+           transition: 'all 0.5s ease' // support transition for CSS3, default: all 0.5s ease
+      }
+      document.querySelector('.grid').gridify(options);
  }
 </code></pre>
 
@@ -55,18 +58,18 @@
 <h2>
 <a name="jquery-plugin" class="anchor" href="#jquery-plugin"><span class="octicon octicon-link"></span></a>Jquery plugin</h2>
 
-<pre><code>$(window).load(function() {
-     var options =
-     {
-         srcNode: 'img',             // grid items (class, node)
-         margin: '20px',             // margin in pixel, default: 0px
-         width: '250px',             // grid item width in pixel, default: 220px
-         max_width: '',              // dynamic gird item width if specified, (pixel)
-         resizable: true,            // re-layout if window resize
-         transition: 'all 0.5s ease' // support transition for CSS3, default: all 0.5s ease
-     }
-     $('.grid').gridify(options);
-});
+<pre><code> $(window).load(function() {
+      var options =
+      {
+           srcNode: 'img',             // grid items (class, node)
+           margin: '20px',             // margin in pixel, default: 0px
+           width: '250px',             // grid item width in pixel, default: 220px
+           max_width: '',              // dynamic gird item width if specified, (pixel)
+           resizable: true,            // re-layout if window resize
+           transition: 'all 0.5s ease' // support transition for CSS3, default: all 0.5s ease
+      }
+      $('.grid').gridify(options);
+ });
 </code></pre>
 
 <p><a href="http://cssdeck.com/labs/wiu0xg4b">Demo</a></p>
@@ -74,40 +77,30 @@
 <h2>
 <a name="yui-plugin" class="anchor" href="#yui-plugin"><span class="octicon octicon-link"></span></a>YUI plugin</h2>
 
-<pre><code>YUI().use('node', 'gridify', function(Y){
-    var options =
-    {
-        srcNode: 'img',             // grid items (class, node)
-        margin: '20px',             // margin in pixel, default: 0px
-        width: '250px',             // grid item width in pixel, default: 220px
-        max_width: '',              // dynamic gird item width if specified, (pixel)
-        resizable: true,            // re-layout if window resize
-        transition: 'all 0.5s ease' // support transition for CSS3, default: all 0.5s ease
-    }
-    Y.one('.grid').gridify(options);
-})
+<pre><code> YUI().use('node', 'gridify', function(Y){
+      var options =
+      {
+           srcNode: 'img',             // grid items (class, node)
+           margin: '20px',             // margin in pixel, default: 0px
+           width: '250px',             // grid item width in pixel, default: 220px
+           max_width: '',              // dynamic gird item width if specified, (pixel)
+           resizable: true,            // re-layout if window resize
+           transition: 'all 0.5s ease' // support transition for CSS3, default: all 0.5s ease
+      }
+      Y.one('.grid').gridify(options);
+ })
 </code></pre>
 
 <p><a href="http://cssdeck.com/labs/q2ylxqns">Demo</a></p>
         </section>
 
-        <aside id="sidebar">
-          <a href="https://github.com/hongkhanh/gridify/zipball/master" class="button">
-            <small>Download</small>
-            .zip file
-          </a>
-          <a href="https://github.com/hongkhanh/gridify/tarball/master" class="button">
-            <small>Download</small>
-            .tar.gz file
-          </a>
+        <footer>
+          Gridify is maintained by <a href="https://github.com/hongkhanh">hongkhanh</a><br>
+          This page was generated by <a href="http://pages.github.com">GitHub Pages</a>. Tactile theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.
+        </footer>
 
-          <p class="repo-owner"><a href="https://github.com/hongkhanh/gridify"></a> is maintained by <a href="https://github.com/hongkhanh">hongkhanh</a>.</p>
-
-          <p>This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the Architect theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
-        </aside>
+        
       </div>
     </div>
-
-  
   </body>
 </html>
