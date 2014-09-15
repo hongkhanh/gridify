@@ -2,7 +2,6 @@
  * Created by khanhnh on 13/09/2014.
  */
 
-
 YUI.add('imageloaded', function (Y) {
 
     var fn =
@@ -26,13 +25,10 @@ YUI.add('imageloaded', function (Y) {
             })
         }
     }
-
     Y.Node.addMethod("imageLoaded", fn.imageLoaded);
     Y.NodeList.importMethod(Y.Node.prototype, "imageLoaded");
 
 }, '0.0.1', { requires: ['node'] });
-
-
 
 YUI.add('gridify', function (Y) {
 
@@ -93,10 +89,6 @@ YUI.add('gridify', function (Y) {
             }
         }
     }
-
-    Y.Node.addMethod("imageLoaded", fn.imageLoaded);
-    Y.NodeList.importMethod(Y.Node.prototype, "imageLoaded");
-
     Y.Node.addMethod("gridify", fn.gridify);
     Y.NodeList.importMethod(Y.Node.prototype, "gridify");
 
