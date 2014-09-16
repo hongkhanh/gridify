@@ -2,6 +2,14 @@ gridify.js
 =======
 A lightweight script for creating a Pinterest-like grid using JQuery, pure javascript or YUI with image loaded
 
+Features
+
+- support image loaded event
+- support window resize event
+- support very long height item
+- support dynamic item width
+- support animation (CSS3 transition)
+
 ![ScreenShot](/screenshot.jpg)
 
 # Usage
