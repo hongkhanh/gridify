@@ -1,0 +1,36 @@
+{
+    "name": "gridify",
+    "title": "jQuery Gridify",
+    "description": "jQuery plugin for creating a Pinterest-like grid layout",
+    "keywords": [
+        "grid",
+        "layout",
+        "pinterest",
+        "mansory"
+    ],
+    "version": "0.1.0",
+    "author": {
+        "name": "hongkhanh",
+        "url": "https://github.com/hongkhanh"
+    },
+    "maintainers": [
+        {
+            "name": "hongkhanh",
+            "email": "khanh0203@gmail.com",
+            "url": "https://github.com/hongkhanh/gridify"
+        }
+    ],
+    "licenses": [
+        {
+            "type": "MIT",
+            "url": "https://github.com/hongkhanh/gridify/blob/master/LICENSE"
+        }
+    ],
+    "bugs": "https://github.com/hongkhanh/gridify/issues",
+    "homepage": "https://github.com/hongkhanh/gridify",
+    "docs": "https://github.com/hongkhanh/gridify",
+    "download": "https://github.com/hongkhanh/gridify",
+    "dependencies": {
+        "jquery": ">=1.5"
+    }
+}
