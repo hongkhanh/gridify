@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body{margin:0}
+    </style>
+</head>
+<body>
+
+<div class="grid">
+    <img src="http://st.houzz.com/simgs/7f618e340caf8d1c_15-1000/asian-landscape.jpg">
+    <img src="http://st.houzz.com/simgs/63a18a8a008d4d2d_15-3579/traditional-landscape.jpg">
+    <img src="http://st.houzz.com/simgs/bcf119ed013946de_15-1739/contemporary-landscape.jpg">
+    <img src="http://st.houzz.com/simgs/af01732a0d23a798_15-6669/rustic-landscape.jpg">
+    <img src="http://st.houzz.com/simgs/9351dd1300226ca7_15-5051/traditional-landscape.jpg">
+    <img src="http://st.houzz.com/simgs/8511c53003205296_15-7228/beach-style-landscape.jpg">
+    <img src="http://st.houzz.com/simgs/b151d63e02691dae_15-7522/farmhouse-landscape.jpg">
+    <img src="http://st.houzz.com/simgs/17713aee00b8b8b7_15-7678/contemporary-landscape.jpg">
+    <img src="http://st.houzz.com/simgs/9001c607024373e9_15-2696/traditional-landscape.jpg">
+    <img src="http://st.houzz.com/simgs/93111938017af9bc_15-9856/contemporary-landscape.jpg">
+    <img src="http://st.houzz.com/simgs/f3512a1300052564_15-4587/contemporary-landscape.jpg">
+    <img src="http://st.houzz.com/simgs/52f1cab4020de25b_15-3918/mediterranean-landscape.jpg">
+    <img src="http://st.houzz.com/simgs/7981aa8403c058e1_15-6222/mediterranean-landscape.jpg">
+    <img src="http://st.houzz.com/simgs/0551552400b55756_15-5380/contemporary-landscape.jpg">
+    <img src="http://st.houzz.com/simgs/5fa170b000f051c0_15-6732/farmhouse-landscape.jpg">
+    <img src="http://st.houzz.com/simgs/3c3153270da524b2_15-9720/traditional-landscape.jpg">
+    <img src="http://st.houzz.com/simgs/d931c502035da8da_15-1082/contemporary-landscape.jpg">
+    <img src="http://st.houzz.com/simgs/db1177f003612e1b_15-7727/asian-landscape.jpg">
+    <img src="http://st.houzz.com/simgs/7851611700608718_15-7654/farmhouse-landscape.jpg">
+    <img src="http://st.houzz.com/simgs/36f1f14a036a87fd_15-1802/tropical-landscape.jpg">
+    <img src="http://st.houzz.com/simgs/56b19bf80f7c817c_15-6711/traditional-landscape.jpg">
+    <img src="http://st.houzz.com/simgs/f601583f01cbd891_15-3060/traditional-landscape.jpg">
+</div>
+
+<script src="../require.js"></script>
+<script>
+    require.config({
+        baseUrl: "../",
+        paths: {
+            jquery: 'jquery-1.11.1.min',
+            gridify: 'gridify'
+        }
+    });
+    require( ["jquery", "gridify"],
+        function($) {
+            var options =
+            {
+                srcNode: 'img',             // grid items (class, node)
+                margin: '20px',             // margin in pixel, default: 0px
+                width: '250px',             // grid item width in pixel, default: 220px
+                max_width: '',              // dynamic gird item width if specified, (pixel)
+                resizable: true,            // re-layout if window resize
+                transition: 'all 0.5s ease' // support transition for CSS3, default: all 0.5s ease
+            }
+            $('.grid').gridify(options);
+        }
+    );
+</script>
+
+</body>
+</html>
