@@ -32,15 +32,19 @@
     <div id="main_content_wrap" class="outer">
       <section id="main_content" class="inner">
         <h1>
-<a name="features" class="anchor" href="#features"><span class="octicon octicon-link"></span></a>Features</h1>
+<a name="gridifyjs" class="anchor" href="#gridifyjs"><span class="octicon octicon-link"></span></a>gridify.js</h1>
+
+<p>A lightweight script for creating a Pinterest-like grid using JQuery, pure javascript or YUI with image loaded</p>
+
+<p>Features</p>
 
 <ul>
-<li>support image loaded event</li>
+<li>support images loaded event</li>
 <li>support window resize event</li>
 <li>support very long height item</li>
 <li>support dynamic item width</li>
 <li>support animation (CSS3 transition)</li>
-</ul><p><img src="https://raw.githubusercontent.com/hongkhanh/gridify/master/screenshot.jpg" alt="A lightweight script for creating a Pinterest like grid using JQuery, pure javascript or YUI with image loaded"></p>
+</ul><p><img src="https://github.com/hongkhanh/gridify/raw/master/screenshot.jpg" alt="ScreenShot"></p>
 
 <h1>
 <a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>Usage</h1>
@@ -79,6 +83,28 @@
       }
       $('.grid').gridify(options);
  });
+
+ // use with requirejs (new feature added on 9 Oct 2014)
+ require.config({
+     paths: {
+         jquery: 'jquery-1.11.1.min',
+         gridify: 'gridify'
+     }
+ });
+ require( ["jquery", "gridify"],
+     function($) {
+         var options =
+         {
+             srcNode: 'img',             // grid items (class, node)
+             margin: '20px',             // margin in pixel, default: 0px
+             width: '250px',             // grid item width in pixel, default: 220px
+             max_width: '',              // dynamic gird item width if specified, (pixel)
+             resizable: true,            // re-layout if window resize
+             transition: 'all 0.5s ease' // support transition for CSS3, default: all 0.5s ease
+         }
+         $('.grid').gridify(options);
+     }
+ );
 </code></pre>
 
 <p><a href="http://cssdeck.com/labs/wiu0xg4b">Demo</a></p>
