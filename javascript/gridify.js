@@ -2,11 +2,12 @@
  * Created by khanhnh on 13/09/2014.
  */
 
+'use strict';
 Element.prototype.imagesLoaded = function (cb){
     var images = this.querySelectorAll('img');
-    var count = length = images.length;
+    var count = images.length;
     if (count == 0) cb();
-    for (var i= 0; i < length; i++)
+    for (var i= 0, length = images.length; i < length; i++)
     {
         var image = new Image();
         image.onload = function(e){

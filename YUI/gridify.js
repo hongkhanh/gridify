@@ -2,6 +2,7 @@
  * Created by khanhnh on 13/09/2014.
  */
 
+'use strict';
 YUI.add('imageloaded', function (Y) {
     var imagesLoaded = function (el, cb)
     {
