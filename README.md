@@ -4,7 +4,7 @@ A lightweight script for creating a Pinterest-like grid using JQuery, pure javas
 
 Features
 
-- support image loaded event
+- support images loaded event
 - support window resize event
 - support very long height item
 - support dynamic item width
