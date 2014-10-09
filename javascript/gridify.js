@@ -2,11 +2,11 @@
  * Created by khanhnh on 13/09/2014.
  */
 
-Element.prototype.imageLoaded = function (cb){
+Element.prototype.imagesLoaded = function (cb){
     var images = this.querySelectorAll('img');
-    var count = images.length;
+    var count = length = images.length;
     if (count == 0) cb();
-    for (var i= 0, length = images.length; i < length; i++)
+    for (var i= 0; i < length; i++)
     {
         var image = new Image();
         image.onload = function(e){
@@ -81,7 +81,7 @@ Element.prototype.gridify = function (options)
                 columns[idx] += items[i].clientHeight + item_margin;
             }
         };
-    this.imageLoaded(render);
+    this.imagesLoaded(render);
     if (options.resizable)
     {
         attachEvent(window, 'resize', render);

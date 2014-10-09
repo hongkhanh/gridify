@@ -3,12 +3,13 @@
  */
 
 $.fn.extend({
-    imageLoaded: function(cb)
+    imagesLoaded: function(cb)
     {
         var images = $(this).find('img');
-        var count = images.length;
+        var length = count = images.length;
         if (count == 0) cb();
-        images.each(function(i, image){
+        for(var i = 0; i< length; i++)
+        {
             var image = new Image();
             image.onload = function(e){
                 count --;
@@ -18,8 +19,8 @@ $.fn.extend({
                 count --;
                 if (count == 0) cb()
             }
-            image.src = $(image).attr('src');
-        })
+            image.src = images[i].src;
+        }
     },
     gridify: function(options) {
         var $this = $(this),
@@ -68,7 +69,7 @@ $.fn.extend({
                 }
             };
 
-        $this.imageLoaded(render);
+        $this.imagesLoaded(render);
         if (options.resizable) {
             var resize =  $(window).on("resize", render);
             $this.on('remove', resize.unbind);

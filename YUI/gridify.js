@@ -3,7 +3,7 @@
  */
 
 YUI.add('imageloaded', function (Y) {
-    var imageLoaded = function (el, cb)
+    var imagesLoaded = function (el, cb)
     {
         var images = this.all('img');
         var count = images.size();
@@ -71,7 +71,7 @@ YUI.add('gridify', function (Y) {
                     columns[i] += item.get('clientHeight') + item_margin;
                 });
             };
-        self.imageLoaded(render);
+        self.imagesLoaded(render);
         if (options.resizable)
         {
             var resize = Y.on('resize', render);
