@@ -24,6 +24,13 @@ $.fn.extend({
     gridify: function(options) {
         var $this = $(this),
             options = options || {},
+            indexOfSmallest = function (a) {
+                var lowest = 0;
+                for (var i = 1, length = a.length; i < length; i++) {
+                    if (a[i] < a[lowest]) lowest = i;
+                }
+                return lowest;
+            },
             render = function()
             {
                 $this.css('position', 'relative');
@@ -46,28 +53,24 @@ $.fn.extend({
                     columns.push(0);
                 }
 
-                items.each(function(i, item) {
-                    var $item = $(item),
-                        idx = $.inArray(Math.min.apply(Math, columns), columns);
-
+                for(var i = 0, length = items.length; i< length; i++)
+                {
+                    var $item = $(items[i]), idx = indexOfSmallest(columns);
                     $item.css({
                         width: item_width,
                         position: 'absolute',
                         margin: item_margin/2,
                         top: columns[idx] + item_margin/2,
                         left: (item_width + item_margin) * idx + left,
-                        transition: options.transition || 'all 0.5s ease'
+                        transition: transition
                     });
                     columns[idx] += $item.innerHeight() + item_margin;
-                });
+                }
             };
-        render();
-        $this.imageLoaded(function(){setTimeout(render, 200)});
+
+        $this.imageLoaded(render);
         if (options.resizable) {
-            var resize =  $(window).on("resize", function(){
-                render();
-                if(options.max_width) setTimeout(render, 200);
-            });
+            var resize =  $(window).on("resize", render);
             $this.on('remove', resize.unbind);
         }
     }

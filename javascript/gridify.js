@@ -26,7 +26,7 @@ Element.prototype.gridify = function (options)
         options = options || {},
         indexOfSmallest = function (a) {
             var lowest = 0;
-            for (var i = 1; i < a.length; i++) {
+            for (var i = 1, length = a.length; i < length; i++) {
                 if (a[i] < a[lowest]) lowest = i;
             }
             return lowest;
@@ -81,14 +81,10 @@ Element.prototype.gridify = function (options)
                 columns[idx] += items[i].clientHeight + item_margin;
             }
         };
-    render();
-    this.imageLoaded(function(){setTimeout(render, 200)});
+    this.imageLoaded(render);
     if (options.resizable)
     {
-        attachEvent(window, 'resize', function(){
-            render();
-            if(options.max_width) setTimeout(render, 200);
-        });
+        attachEvent(window, 'resize', render);
         attachEvent(self, 'DOMNodeRemoved', function(){
             detachEvent(window, 'resize', render);
         })

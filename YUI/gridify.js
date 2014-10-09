@@ -33,7 +33,7 @@ YUI.add('gridify', function (Y) {
             transition = (options.transition || 'all 0.5s ease') + ', height 0, width 0',
             indexOfSmallest = function (a) {
                 var lowest = 0;
-                for (var i = 1; i < a.length; i++) {
+                for (var i = 1, length = a.length; i < length; i++) {
                     if (a[i] < a[lowest]) lowest = i;
                 }
                 return lowest;
@@ -71,14 +71,10 @@ YUI.add('gridify', function (Y) {
                     columns[i] += item.get('clientHeight') + item_margin;
                 });
             };
-        render();
-        self.imageLoaded(function(){setTimeout(render, 200)});
+        self.imageLoaded(render);
         if (options.resizable)
         {
-            var resize = Y.on('resize', function(){
-                render();
-                if(options.max_width) setTimeout(render, 200);
-            });
+            var resize = Y.on('resize', render);
             self.on('destroy', resize.detach, self);
         }
     }
