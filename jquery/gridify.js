@@ -18,11 +18,7 @@
             for(var i = 0, length = images.length; i< length; i++)
             {
                 var image = new Image();
-                image.onload = function(e){
-                    count --;
-                    if (count == 0) cb()
-                }
-                image.onerror = function(e){
+                image.onload = image.onerror = function(e){
                     count --;
                     if (count == 0) cb()
                 }

@@ -3,7 +3,7 @@
  */
 
 'use strict';
-YUI.add('imageloaded', function (Y) {
+YUI.add('images-loaded', function (Y) {
     var imagesLoaded = function (el, cb)
     {
         var images = this.all('img');
@@ -11,19 +11,15 @@ YUI.add('imageloaded', function (Y) {
         if (count == 0) cb();
         images.each(function(img){
             var image = new Image();
-            image.onload = function(e){
-                count --;
-                if (count == 0) cb()
-            }
-            image.onerror = function(e){
+            image.onload = image.onerror = function(e){
                 count --;
                 if (count == 0) cb()
             }
             image.src = img.getAttribute('src');
         })
     }
-    Y.Node.addMethod("imageLoaded", imageLoaded);
-    Y.NodeList.importMethod(Y.Node.prototype, "imageLoaded");
+    Y.Node.addMethod("imagesLoaded", imagesLoaded);
+    Y.NodeList.importMethod(Y.Node.prototype, "imagesLoaded");
 }, '0.0.1', { requires: ['node'] });
 
 YUI.add('gridify', function (Y) {
@@ -81,5 +77,5 @@ YUI.add('gridify', function (Y) {
     }
     Y.Node.addMethod("gridify", gridify);
     Y.NodeList.importMethod(Y.Node.prototype, "gridify");
-}, '0.0.1', { requires: ['node', 'imageloaded'] });
+}, '0.0.1', { requires: ['node', 'images-loaded'] });
 
