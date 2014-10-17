@@ -74,7 +74,7 @@
 
             $this.imagesLoaded(render);
             if (options.resizable) {
-                var resize =  $(window).on("resize", render);
+                var resize =  $(window).bind("resize", render);
                 $this.on('remove', resize.unbind);
             }
         }
