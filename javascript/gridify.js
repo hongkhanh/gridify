@@ -28,6 +28,13 @@ Element.prototype.gridify = function (options)
             }
             return lowest;
         },
+        highestColumn = function (cols) {
+            var highest = 0;
+            for (var i = 0, length = cols.length; i < length; i++) {
+                if (cols[i] > highest) highest = cols[i];
+            }
+            return highest;
+        },
         attachEvent = function(node, event, cb)
         {
             if (node.attachEvent)
@@ -77,6 +84,7 @@ Element.prototype.gridify = function (options)
 
                 columns[idx] += items[i].clientHeight + item_margin;
             }
+            self.style.height = highestColumn(columns)+'px';
         };
     this.imagesLoaded(render);
     if (options.resizable)
